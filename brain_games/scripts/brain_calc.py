@@ -26,8 +26,9 @@ def evaluate(equation):
 def game():
     first_number = str(get_random_number())
     second_number = str(get_random_number())
-    equation = first_number + get_random_operator() + second_number
-    print(equation)
+    operator = get_random_operator()
+    equation = first_number + operator + second_number
+    print('Question:',first_number,operator,second_number)
     answer = prompt.string('Your answer: ')
     if str(answer) == str(evaluate(equation)):
         return "Correct"
