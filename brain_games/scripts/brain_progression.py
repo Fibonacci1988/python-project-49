@@ -12,7 +12,7 @@ def game():
         progression.append(start + i * diff)
     correct_answer = progression[hidden_position]
     progression[hidden_position] = '**'
-    print('Question:', progression)
+    print('Question:', " ".join(map(str, progression)))
     answer = prompt.string('Your answer: ')
     if str(answer) == str(correct_answer):
         return "Correct"
