@@ -1,10 +1,6 @@
 import random
 import prompt
-
-
-# define a function to generate a random number from 1 to 99
-def get_random_number():
-    return random.randint(1, 99)
+import brain_games.scripts.brain_games as welcome
 
 
 # define a function to check if a number is even or odd
@@ -16,7 +12,7 @@ def is_even(number):
 
 
 def game():
-    number = get_random_number()
+    number = random.randint(1, 99)
     print("Question: ", number)
     answer = prompt.string('Your answer: ')
     if answer == is_even(number):
@@ -28,8 +24,7 @@ def game():
 
 
 def main():
-    with open("user_name.txt", "r") as f:
-        user_name = f.read()
+    user_name = welcome.main()
     print('Answer "yes" if the number is even, otherwise answer "no".')
     if game() == 'Correct':
         print("Correct")

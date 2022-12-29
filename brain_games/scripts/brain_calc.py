@@ -1,5 +1,6 @@
 import random
 import prompt
+import brain_games.scripts.brain_games as welcome
 
 
 # define a function to generate a random number from 1 to 99
@@ -37,8 +38,7 @@ def game():
 
 
 def main():
-    with open("user_name.txt", "r") as f:
-        user_name = f.read()
+    user_name = welcome.main()
     print("What is the result of the expression?")
     if game() == 'Correct':
         print("Correct")

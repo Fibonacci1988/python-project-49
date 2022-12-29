@@ -1,6 +1,7 @@
 import random
 import prompt
 import math
+import brain_games.scripts.brain_games as welcome
 
 
 # define a function to check if a number is even or odd
@@ -32,8 +33,7 @@ def game():
 
 
 def main():
-    with open("user_name.txt", "r") as f:
-        user_name = f.read()
+    user_name = welcome.main()
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
     if game() == 'Correct':
         print("Correct")

@@ -1,5 +1,6 @@
 import random
 import prompt
+import brain_games.scripts.brain_games as welcome
 
 
 def game():
@@ -23,8 +24,7 @@ def game():
 
 
 def main():
-    with open("user_name.txt", "r") as f:
-        user_name = f.read()
+    user_name = welcome.main()
     print("What number is missing in the progression?")
     if game() == 'Correct':
         print("Correct")

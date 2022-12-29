@@ -1,6 +1,7 @@
 import random
 import prompt
 import math
+import brain_games.scripts.brain_games as welcome
 
 
 # define a function to generate a random number from 1 to 99
@@ -28,8 +29,7 @@ def game():
 
 
 def main():
-    with open("user_name.txt", "r") as f:
-        user_name = f.read()
+    user_name = welcome.main()
     print("Find the greatest common divisor of given numbers.")
     if game() == 'Correct':
         print("Correct")
