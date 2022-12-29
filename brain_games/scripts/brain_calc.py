@@ -38,7 +38,8 @@ def game():
 
 
 def main():
-    user_name = welcome.main()
+    welcome.main()
+    user_name = welcome.user_name
     print("What is the result of the expression?")
     if game() == 'Correct':
         print("Correct")

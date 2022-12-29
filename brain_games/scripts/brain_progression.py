@@ -24,7 +24,8 @@ def game():
 
 
 def main():
-    user_name = welcome.main()
+    welcome.main()
+    user_name = welcome.user_name
     print("What number is missing in the progression?")
     if game() == 'Correct':
         print("Correct")

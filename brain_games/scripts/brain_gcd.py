@@ -29,7 +29,8 @@ def game():
 
 
 def main():
-    user_name = welcome.main()
+    welcome.main()
+    user_name = welcome.user_name
     print("Find the greatest common divisor of given numbers.")
     if game() == 'Correct':
         print("Correct")

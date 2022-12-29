@@ -24,7 +24,8 @@ def game():
 
 
 def main():
-    user_name = welcome.main()
+    welcome.main()
+    user_name = welcome.user_name
     print('Answer "yes" if the number is even, otherwise answer "no".')
     if game() == 'Correct':
         print("Correct")
