@@ -33,7 +33,7 @@ def game():
         return "Correct"
     else:
         answer = "'" + answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(evaluate(equation)) + "'")
+        print(answer + str(evaluate(equation)) + "'.")
         return ""
 
 
@@ -42,18 +42,18 @@ def main():
     user_name = welcome.user_name
     print("What is the result of the expression?")
     if game() == 'Correct':
-        print("Correct")
+        print("Correct!")
         if game() == 'Correct':
-            print("Correct")
+            print("Correct!")
             if game() == 'Correct':
-                print("Correct")
-                print('Congratulations, ', user_name)
+                print("Correct!")
+                print('Congratulations, ' + user_name + '!')
             else:
-                print("Let's try again, ", user_name, "!")
+                print("Let's try again, " + user_name + "!")
         else:
-            print("Let's try again, ", user_name, "!")
+            print("Let's try again, " + user_name + "!")
     else:
-        print("Let's try again, ", user_name, "!")
+        print("Let's try again, " + user_name + "!")
 
 
 if __name__ == '__main__':
