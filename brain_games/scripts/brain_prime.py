@@ -1,54 +1,8 @@
-import random
-import prompt
-import math
-import brain_games.scripts.brain_games as welcome
-
-
-# define a function to check if a number is even or odd
-def prime(number):
-    is_prime = True
-    for i in range(2, int(math.sqrt(number)) + 1):
-        if number % i == 0:
-            is_prime = False
-            break
-
-    if is_prime:
-        return 'yes'
-    else:
-        return 'no'
-
-
-def game():
-    number = random.randint(1, 100)
-    print('Question:', number)
-    answer = prompt.string('Your answer: ')
-    correct_answer = prime(number)
-    if str(answer) == str(correct_answer):
-        return "Correct"
-    else:
-        answer = "'" + str(answer)
-        answer = answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(correct_answer) + "'.")
-        return ""
+import brain_games.scripts.games as games
 
 
 def main():
-    welcome.main()
-    user_name = welcome.user_name
-    print('Answer "yes" if given number is prime. Otherwise answer "no".')
-    if game() == 'Correct':
-        print("Correct!")
-        if game() == 'Correct':
-            print("Correct!")
-            if game() == 'Correct':
-                print("Correct!")
-                print('Congratulations, ' + user_name + '!')
-            else:
-                print("Let's try again, " + user_name + "!")
-        else:
-            print("Let's try again, " + user_name + "!")
-    else:
-        print("Let's try again, " + user_name + "!")
+    games.main('prime')
 
 
 if __name__ == '__main__':
