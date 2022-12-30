@@ -118,7 +118,7 @@ def progression_logic():
 
 
 def game(game_name):
-    answer=''
+    answer = ''
     if game_name == 'even':
         answer = even_logic()
     elif game_name == 'calc':
@@ -130,6 +130,7 @@ def game(game_name):
     elif game_name == 'progression':
         answer = progression_logic()
     return answer
+
 
 def first_message(game_name):
     if game_name == 'even':
@@ -165,4 +166,3 @@ def main(game_name):
     user_name = welcome.user_name
     first_message(game_name)
     game_coordination(user_name, game_name)
-
