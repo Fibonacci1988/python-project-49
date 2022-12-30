@@ -118,17 +118,18 @@ def progression_logic():
 
 
 def game(game_name):
+    answer=''
     if game_name == 'even':
-        return even_logic()
+        answer = even_logic()
     elif game_name == 'calc':
-        return calc_logic()
+        answer = calc_logic()
     elif game_name == 'gcd':
-        return gcd_logic()
+        answer = gcd_logic()
     elif game_name == 'prime':
-        return prime_logic()
+        answer = prime_logic()
     elif game_name == 'progression':
-        return progression_logic()
-
+        answer = progression_logic()
+    return answer
 
 def first_message(game_name):
     if game_name == 'even':
@@ -143,10 +144,7 @@ def first_message(game_name):
         print("What number is missing in the progression?")
 
 
-def main(game_name):
-    welcome.main()
-    user_name = welcome.user_name
-    first_message(game_name)
+def game_coordination(user_name, game_name):
     if game(game_name) == 'Correct':
         print("Correct!")
         if game(game_name) == 'Correct':
@@ -160,3 +158,11 @@ def main(game_name):
             print("Let's try again, " + user_name + "!")
     else:
         print("Let's try again, " + user_name + "!")
+
+
+def main(game_name):
+    welcome.main()
+    user_name = welcome.user_name
+    first_message(game_name)
+    game_coordination(user_name, game_name)
+
