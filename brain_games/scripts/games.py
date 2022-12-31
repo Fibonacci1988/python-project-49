@@ -37,17 +37,21 @@ def prime(number):
         return 'no'
 
 
+def incorrect_reply(answer, correct_answer):
+    answer = "'" + str(answer) + "' is wrong answer ;(. Correct answer was '"
+    answer = answer + str(correct_answer) + "'."
+    return answer
+
+
 # logic of brain-even game
 def even_logic():
     number = random.randint(1, 99)
     print("Question:", number)
     answer = prompt.string('Your answer: ')
     if answer == is_even(number):
-        return "Correct"
+        return "Correct!"
     else:
-        answer = "'" + answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + is_even(number) + "'.")
-        return ""
+        return incorrect_reply(answer, is_even(number))
 
 
 # logic of brain-calc game
@@ -59,11 +63,9 @@ def calc_logic():
     print('Question:', first_number, operator, second_number)
     answer = prompt.string('Your answer: ')
     if str(answer) == str(eval(equation)):
-        return "Correct"
+        return "Correct!"
     else:
-        answer = "'" + answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(eval(equation)) + "'.")
-        return ""
+        return incorrect_reply(answer, eval(equation))
 
 
 # logic of brain-gcd game
@@ -73,12 +75,9 @@ def gcd_logic():
     print('Question:', first_number, second_number)
     answer = prompt.string('Your answer: ')
     if str(answer) == str(math.gcd(first_number, second_number)):
-        return "Correct"
+        return "Correct!"
     else:
-        answer = "'" + str(answer)
-        answer = answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(math.gcd(first_number, second_number)) + "'.")
-        return ""
+        return incorrect_reply(answer, math.gcd(first_number, second_number))
 
 
 # logic of brain-prime game
@@ -88,12 +87,9 @@ def prime_logic():
     answer = prompt.string('Your answer: ')
     correct_answer = prime(number)
     if str(answer) == str(correct_answer):
-        return "Correct"
+        return "Correct!"
     else:
-        answer = "'" + str(answer)
-        answer = answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(correct_answer) + "'.")
-        return ""
+        return incorrect_reply(answer, correct_answer)
 
 
 # logic of brain-progression game
@@ -109,12 +105,9 @@ def progression_logic():
     print('Question:', " ".join(map(str, progression)))
     answer = prompt.string('Your answer: ')
     if str(answer) == str(correct_answer):
-        return "Correct"
+        return "Correct!"
     else:
-        answer = "'" + str(answer)
-        answer = answer + "' is wrong answer ;(. Correct answer was '"
-        print(answer + str(correct_answer) + "'.")
-        return ""
+        return incorrect_reply(answer, correct_answer)
 
 
 def game(game_name):
@@ -146,17 +139,16 @@ def first_message(game_name):
 
 
 def game_coordination(user_name, game_name):
-    if game(game_name) == 'Correct':
-        print("Correct!")
-        if game(game_name) == 'Correct':
-            print("Correct!")
-            if game(game_name) == 'Correct':
-                print("Correct!")
-                print('Congratulations, ' + user_name + '!')
-            else:
-                print("Let's try again, " + user_name + "!")
+    rounds = 3
+    while rounds > 0:
+        result = game(game_name)
+        print(result)
+        if result == 'Correct!':
+            rounds -= 1
         else:
-            print("Let's try again, " + user_name + "!")
+            rounds = -1
+    if rounds == 0:
+        print('Congratulations, ' + user_name + '!')
     else:
         print("Let's try again, " + user_name + "!")
 
