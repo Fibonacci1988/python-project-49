@@ -1,2 +1,4 @@
 dist/
 .DS_Store
+brain_games/__pycache__/
+
